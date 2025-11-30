@@ -60,7 +60,8 @@ router.get('/download', async (req, res, next) => {
         // Using -o to format filenames
         const args = [
             '-o', path.join(tempDir, '%(title)s.%(ext)s'),
-            '-f', 'best', // Or 'bestaudio' if they want mp3s, but requirement says "Download entire playlist"
+            '-f', 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
+            '--merge-output-format', 'mp4',
             url
         ];
 
